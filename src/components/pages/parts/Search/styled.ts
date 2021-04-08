@@ -3,12 +3,13 @@ import color from '../../../styles/color'
 import { typographyParagraphBig } from '../../../styles/font'
 import spacing from '../../../styles/spacing'
 import SearchSvg from '../../../../../assets/search.svg'
+import borderRadius from '../../../styles/borderRadius'
 
 export const SearchInput = styled.input`
     ${typographyParagraphBig}
     padding: ${spacing(1 / 2)};
     border: 1px solid ${color.secondary};
-    border-radius: 12px;
+    border-radius: ${borderRadius.normal};
     flex: 1;
 
     ::placeholder {
