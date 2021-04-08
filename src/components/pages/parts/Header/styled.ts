@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import Section from '../Section'
+import SectionBase from '../SectionBase'
 import { typographyParagraphBig } from '../../../font'
 import spacing from '../../../spacing'
 import color from '../../../color'
 
-export const HeaderWrapper = styled(Section).attrs({ as: 'header' })`
+export const HeaderWrapper = styled(SectionBase).attrs({ as: 'header' })`
     display: flex;
     height: 64px;
     align-items: center;
