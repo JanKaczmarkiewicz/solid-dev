@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import color from '../../../color'
-import { typographyParagraphBig } from '../../../font'
-import spacing from '../../../spacing'
+import color from '../../../styles/color'
+import { typographyParagraphBig } from '../../../styles/font'
+import spacing from '../../../styles/spacing'
 import SearchSvg from '../../../../../assets/search.svg'
 
 export const SearchInput = styled.input`

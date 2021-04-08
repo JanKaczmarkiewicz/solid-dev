@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { typographyHeading2, typographyHeading5 } from '../../../font'
+import { typographyHeading2, typographyHeading5 } from '../../../styles/font'
 import SectionBase from '../SectionBase'
 import GalaxySvg from '../../../../../assets/bgGalaxy.svg'
-import spacing from '../../../spacing'
+import spacing from '../../../styles/spacing'
 
 export const SectionContainer = styled(SectionBase)`
     display: grid;

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import SectionBase from '../SectionBase'
-import { typographyParagraphBig } from '../../../font'
-import spacing from '../../../spacing'
-import color from '../../../color'
+import { typographyParagraphBig } from '../../../styles/font'
+import spacing from '../../../styles/spacing'
+import color from '../../../styles/color'
 
 export const HeaderWrapper = styled(SectionBase).attrs({ as: 'header' })`
     display: flex;
