@@ -1,3 +1,4 @@
+import React from 'react'
 import { ChangeEventHandler, useState } from 'react'
 import { SearchIcon, SearchInput, SearchWrapper } from './styled'
 

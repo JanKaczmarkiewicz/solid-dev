@@ -15,7 +15,7 @@ const HeroSection = () => (
         <MainTitle>Witaj na blogu o web</MainTitle>
         <GalaxyImage />
         <NewsContainer>
-            <SectionTitle>Najnowsze artykuły</SectionTitle>
+            <SectionTitle>Nowości</SectionTitle>
             {['', ''].map(() => (
                 <ArticleCard />
             ))}

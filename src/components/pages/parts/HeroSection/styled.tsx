@@ -3,6 +3,7 @@ import { typographyHeading2, typographyHeading5 } from '../../../styles/font'
 import SectionBase from '../SectionBase'
 import GalaxySvg from '../../../../../assets/bgGalaxy.svg'
 import spacing from '../../../styles/spacing'
+import mediaQuery from '../../../styles/mediaQuery'
 
 export const SectionContainer = styled(SectionBase)`
     display: grid;
@@ -12,6 +13,16 @@ export const SectionContainer = styled(SectionBase)`
         't t t t t t t . i i i i'
         'n n n n n n n . s s s s';
     padding-top: ${spacing(1)};
+
+    @media ${mediaQuery.mobile} {
+        grid-template-columns: auto;
+        gap: ${spacing(3)};
+        grid-template-areas:
+            't'
+            'i'
+            's'
+            'n';
+    }
 `
 
 export const MainTitle = styled.h1`
