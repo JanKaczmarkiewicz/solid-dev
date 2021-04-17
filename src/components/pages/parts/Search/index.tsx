@@ -1,3 +1,4 @@
+import { mdiMagnify } from '@mdi/js'
 import React from 'react'
 import { ChangeEventHandler, useState } from 'react'
 import { SearchIcon, SearchInput, SearchWrapper } from './styled'
@@ -16,7 +17,7 @@ const Search = () => {
                 onChange={handleChange}
                 value={searchPhrase}
             />
-            <SearchIcon />
+            <SearchIcon path={mdiMagnify} />
         </SearchWrapper>
     )
 }

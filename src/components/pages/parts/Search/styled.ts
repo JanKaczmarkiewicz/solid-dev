@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import color from '../../../styles/color'
 import { typographyParagraphBig } from '../../../styles/font'
 import spacing from '../../../styles/spacing'
-import SearchSvg from '../../../../../assets/search.svg'
 import borderRadius from '../../../styles/borderRadius'
+import Icon from '@mdi/react'
 
 export const SearchInput = styled.input`
     ${typographyParagraphBig}
@@ -23,7 +23,7 @@ export const SearchWrapper = styled.div`
     color: ${color.secondary};
 `
 
-export const SearchIcon = styled(SearchSvg)`
+export const SearchIcon = styled(Icon)`
     position: absolute;
     right: ${spacing(1 / 2)};
     top: ${spacing(1 / 2)};

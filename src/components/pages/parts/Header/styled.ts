@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 import SectionBase from '../SectionBase'
 import { typographyParagraphBig } from '../../../styles/font'
@@ -21,18 +21,30 @@ export const LogoWrapper = styled.div`
     padding: ${spacing(1 / 2)} ${spacing(1)};
 `
 
-export const Navigation = styled.nav`
+const navigationMobileStyles = css`
+    display: flex;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    padding-top: ${spacing(5)};
+
+    > link {
+        display: default;
+    }
+`
+
+export const Navigation = styled.nav<{ isMobileMenuOpen: boolean }>`
     display: flex;
     gap: ${spacing(3)};
     background-color: white;
 
     @media ${mediaQuery.mobile} {
-        top: 0;
-        left: 0;
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        flex-direction: column;
+        display: none;
+        ${({ isMobileMenuOpen }) => isMobileMenuOpen && navigationMobileStyles}
     }
 `
 
