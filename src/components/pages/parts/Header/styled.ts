@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 import SectionBase from '../SectionBase'
-import { typographyParagraphBig } from '../../../styles/font'
-import spacing from '../../../styles/spacing'
-import color from '../../../styles/color'
-import mediaQuery from '../../../styles/mediaQuery'
-import zIndex from '../../../styles/zIndex'
+import { typographyParagraphBig } from '../../../../styles/font'
+import spacing from '../../../../styles/spacing'
+import color from '../../../../styles/color'
+import mediaQuery from '../../../../styles/mediaQuery'
+import zIndex from '../../../../styles/zIndex'
 
 export const HeaderWrapper = styled(SectionBase).attrs({ as: 'header' })`
     display: flex;

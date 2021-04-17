@@ -9,8 +9,8 @@ import Logo from '../../../../../assets/logo.svg'
 import Icon from '@mdi/react'
 import { mdiClose, mdiMenu } from '@mdi/js'
 import styled from 'styled-components'
-import mediaQuery from '../../../styles/mediaQuery'
-import spacing from '../../../styles/spacing'
+import mediaQuery from '../../../../styles/mediaQuery'
+import spacing from '../../../../styles/spacing'
 
 const NavigationButton = styled.div`
     display: none;
