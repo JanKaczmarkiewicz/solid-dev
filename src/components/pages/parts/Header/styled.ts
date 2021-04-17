@@ -6,6 +6,8 @@ import spacing from '../../../../styles/spacing'
 import color from '../../../../styles/color'
 import mediaQuery from '../../../../styles/mediaQuery'
 import zIndex from '../../../../styles/zIndex'
+import Icon from '../../../atom/Icon'
+import { mdiClose, mdiMenu } from '@mdi/js'
 
 export const HeaderWrapper = styled(SectionBase).attrs({ as: 'header' })`
     display: flex;
@@ -56,4 +58,23 @@ export const NavigationLink = styled(Link)`
     &[aria-current] {
         color: ${color.primary};
     }
+`
+
+const hideOnMobileStyles = css`
+    display: none;
+
+    @media ${mediaQuery.mobile} {
+        display: block;
+    }
+`
+
+export const OpenIcon = styled(Icon).attrs({ path: mdiMenu })`
+    ${hideOnMobileStyles}
+`
+
+export const CloseIcon = styled(Icon).attrs({ path: mdiClose })`
+    ${hideOnMobileStyles}
+    position: absolute;
+    top: ${spacing(1)};
+    right: ${spacing(1)};
 `
