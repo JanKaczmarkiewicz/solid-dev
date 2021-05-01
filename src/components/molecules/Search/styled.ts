@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import color from '../../../../styles/color'
-import { typographyParagraphBig } from '../../../../styles/font'
-import spacing from '../../../../styles/spacing'
-import borderRadius from '../../../../styles/borderRadius'
-import Icon from '../../../atom/Icon'
+import color from '../../../styles/color'
+import { typographyParagraphBig } from '../../../styles/font'
+import spacing from '../../../styles/spacing'
+import borderRadius from '../../../styles/borderRadius'
+import Icon from '../../atom/Icon'
 
 export const SearchInput = styled.input`
     ${typographyParagraphBig}

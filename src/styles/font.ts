@@ -14,7 +14,7 @@ export const typographyHeading1 = css`
 export const typographyHeading2 = css`
     font-weight: bold;
     font-size: ${getFontSize(6)};
-    line-height: 62px;
+    line-height: 71px;
 `
 
 export const typographyHeading3 = css`

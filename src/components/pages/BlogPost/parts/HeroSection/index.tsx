@@ -1,6 +1,6 @@
 import React from 'react'
-import ArticleCard from '../ArticleCard'
-import Search from '../Search'
+import ArticleCard from '../../../../molecules/ArticleCard'
+import Search from '../../../../molecules/Search'
 import {
     SectionContainer,
     GalaxyImage,

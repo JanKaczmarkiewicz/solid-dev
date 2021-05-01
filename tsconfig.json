@@ -13,5 +13,12 @@
         "noUnusedParameters": true,
         "removeComments": false
     },
-    "include": ["./src/**/*"]
+    "include": ["./src/**/*"],
+    "plugins": [
+        {
+            "name": "ts-graphql-plugin",
+            "schema": "src/__generated__/gatsby-schema.graphql",
+            "tag": "graphql"
+        }
+    ]
 }

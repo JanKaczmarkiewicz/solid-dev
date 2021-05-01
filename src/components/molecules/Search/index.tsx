@@ -1,6 +1,5 @@
 import { mdiMagnify } from '@mdi/js'
-import React from 'react'
-import { ChangeEventHandler, useState } from 'react'
+import React, { ChangeEventHandler, useState } from 'react'
 import { SearchIcon, SearchInput, SearchWrapper } from './styled'
 
 const Search = () => {

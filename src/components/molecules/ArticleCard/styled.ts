@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import color from '../../../../styles/color'
-import spacing from '../../../../styles/spacing'
+import color from '../../../styles/color'
+import spacing from '../../../styles/spacing'
 import {
     typographyHeading6,
     typographyParagraphNormal,
     typographyParagraphSmall,
-} from '../../../../styles/font'
+} from '../../../styles/font'
 
 export const ArticleWrapper = styled.a`
     display: flex;
