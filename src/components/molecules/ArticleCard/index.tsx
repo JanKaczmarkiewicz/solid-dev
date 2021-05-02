@@ -8,20 +8,35 @@ import {
     TagsContainer,
 } from './styled'
 
-const ArticleCard = ({ title, description, date }) => (
-    <ArticleWrapper>
-        <ArticleTitle>{title}</ArticleTitle>
+type ArticleCardProps = GatsbyTypes.FrontPagePostsQuery['allMarkdownRemark']['nodes'][number]
 
-        <ArticleDescription>{description}</ArticleDescription>
+const ArticleCard = ({
+    excerpt,
+    frontmatter,
+    timeToRead,
+}: ArticleCardProps) => {
+    const title = frontmatter?.title
+    const date = frontmatter?.date
+    const tags = frontmatter?.tags || []
+    const slug = frontmatter?.slug || ''
 
-        <TagsContainer>
-            {['react', 'typescript', 'a11y'].map((tag) => (
-                <Tag>{tag}</Tag>
-            ))}
-        </TagsContainer>
+    return (
+        <ArticleWrapper to={slug}>
+            <ArticleTitle>{title}</ArticleTitle>
 
-        <ArticleMeta>Mar 10 · 7 min read</ArticleMeta>
-    </ArticleWrapper>
-)
+            <ArticleDescription>{excerpt}</ArticleDescription>
+
+            <TagsContainer>
+                {tags.map((tag) => (
+                    <Tag>{tag}</Tag>
+                ))}
+            </TagsContainer>
+
+            <ArticleMeta>
+                {date} · {timeToRead} min czytania
+            </ArticleMeta>
+        </ArticleWrapper>
+    )
+}
 
 export default ArticleCard

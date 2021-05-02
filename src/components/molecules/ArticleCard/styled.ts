@@ -6,11 +6,21 @@ import {
     typographyParagraphNormal,
     typographyParagraphSmall,
 } from '../../../styles/font'
+import { Link } from 'gatsby'
 
-export const ArticleWrapper = styled.div`
+const TEXT_SHADOW_SIZE = '0.3px'
+
+export const ArticleWrapper = styled(Link)`
     display: flex;
     flex-direction: column;
     gap: ${spacing(1)};
+
+    :hover {
+        text-shadow: -${TEXT_SHADOW_SIZE} 0 ${color.primary},
+            0 ${TEXT_SHADOW_SIZE} ${color.primary},
+            ${TEXT_SHADOW_SIZE} 0 ${color.primary},
+            0 -${TEXT_SHADOW_SIZE} ${color.primary};
+    }
 `
 
 export const ArticleTitle = styled.h3`

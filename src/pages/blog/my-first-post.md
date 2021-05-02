@@ -2,6 +2,7 @@
 slug: '/blog/my-first-post'
 date: '2019-05-04'
 title: 'My first blog post'
+tags: ['react', 'typescript']
 ---
 
 There are multiple modules with names that only differ in

@@ -5,10 +5,13 @@ export const query = graphql`
     query FrontPagePosts {
         allMarkdownRemark {
             nodes {
+                timeToRead
+                excerpt
                 frontmatter {
                     title
                     date
                     slug
+                    tags
                 }
             }
         }

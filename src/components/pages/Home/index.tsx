@@ -1,5 +1,7 @@
 import { Link, PageProps } from 'gatsby'
 import React from 'react'
+import styled from 'styled-components'
+import color from '../../../styles/color'
 import ArticleCard from '../../molecules/ArticleCard'
 import Header from '../../molecules/Header'
 import { Toolbar } from '../../molecules/Header/styled'
@@ -14,12 +16,7 @@ import {
 } from './styled'
 
 const Home = ({ data }: PageProps<GatsbyTypes.FrontPagePostsQuery>) => {
-    const posts = data.allMarkdownRemark.nodes.map(({ frontmatter }) => ({
-        title: frontmatter?.title || '',
-        description: 'lorem ipsum dolor sit amet',
-        date: frontmatter?.date || '',
-        slug: frontmatter?.slug || '/',
-    }))
+    const posts = data.allMarkdownRemark.nodes
 
     return (
         <>
@@ -30,14 +27,8 @@ const Home = ({ data }: PageProps<GatsbyTypes.FrontPagePostsQuery>) => {
                 <GalaxyImage />
                 <NewsContainer>
                     <SectionTitle>Nowości</SectionTitle>
-                    {posts.map(({ title, description, date, slug }) => (
-                        <Link to={slug}>
-                            <ArticleCard
-                                title={title}
-                                description={description}
-                                date={date}
-                            />
-                        </Link>
+                    {posts.map((post) => (
+                        <ArticleCard {...post} />
                     ))}
                 </NewsContainer>
 
