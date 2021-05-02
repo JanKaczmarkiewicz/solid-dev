@@ -8,13 +8,11 @@ import {
     TagsContainer,
 } from './styled'
 
-const ArticleCard = () => (
+const ArticleCard = ({ title, description, date }) => (
     <ArticleWrapper>
-        <ArticleTitle>
-            The 5 Most Overrated Personalities on The Planet
-        </ArticleTitle>
+        <ArticleTitle>{title}</ArticleTitle>
 
-        <ArticleDescription>Our heroes reveal our values.</ArticleDescription>
+        <ArticleDescription>{description}</ArticleDescription>
 
         <TagsContainer>
             {['react', 'typescript', 'a11y'].map((tag) => (

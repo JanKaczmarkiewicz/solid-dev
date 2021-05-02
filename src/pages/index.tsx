@@ -1,4 +1,18 @@
-import React from 'react'
+import { graphql } from 'gatsby'
 import Home from '../components/pages/Home'
 
-export default () => <Home />
+export const query = graphql`
+    query FrontPagePosts {
+        allMarkdownRemark {
+            nodes {
+                frontmatter {
+                    title
+                    date
+                    slug
+                }
+            }
+        }
+    }
+`
+
+export default Home

@@ -7,7 +7,7 @@ import {
     typographyParagraphSmall,
 } from '../../../styles/font'
 
-export const ArticleWrapper = styled.a`
+export const ArticleWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: ${spacing(1)};

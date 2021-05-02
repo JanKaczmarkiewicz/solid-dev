@@ -8,7 +8,7 @@ import {
     CloseIcon,
     HeaderContent,
 } from './styled'
-import Logo from '../../../../../assets/logo.svg'
+import Logo from '../../../../assets/logo.svg'
 import { Link } from 'gatsby'
 
 export type HeaderProps = {
@@ -49,7 +49,7 @@ const Header = (props: HeaderProps) => {
                     <CloseIcon onClick={handleToggleMobileMenuOpen} />
 
                     {LINKS.map(({ link, label }) => (
-                        <NavigationLink {...props} to={link}>
+                        <NavigationLink key={link} {...props} to={link}>
                             {label}
                         </NavigationLink>
                     ))}

@@ -33,10 +33,21 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                extensions: ['.md'],
+                defaultLayouts: {
+                    default: require.resolve(
+                        './src/components/pages/BlogPost/index.tsx'
+                    ),
+                },
+            },
+        },
+        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `markdown-pages`,
-                path: `${__dirname}/src/articles`,
+                path: `${__dirname}/src/pages`,
             },
         },
     ],

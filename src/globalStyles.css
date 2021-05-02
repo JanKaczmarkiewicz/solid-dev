@@ -4,6 +4,7 @@
 
 body {
     margin: 0;
+    overflow: auto;
     font-family: Poppins;
     font-size: 16px;
 }
@@ -26,4 +27,9 @@ button {
     border: none;
     line-height: normal;
     line-height: 1em;
+}
+
+a {
+    color: black;
+    text-decoration: none;
 }

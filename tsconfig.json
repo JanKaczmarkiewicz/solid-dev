@@ -13,7 +13,7 @@
         "noUnusedParameters": true,
         "removeComments": false
     },
-    "include": ["./src/**/*"],
+    "include": ["./src/**/*", "{MarkdownRemark.frontmatter__slug}.tsx"],
     "plugins": [
         {
             "name": "ts-graphql-plugin",
