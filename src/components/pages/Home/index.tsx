@@ -1,7 +1,5 @@
-import { Link, PageProps } from 'gatsby'
 import React from 'react'
-import styled from 'styled-components'
-import color from '../../../styles/color'
+import { PageProps } from 'gatsby'
 import ArticleCard from '../../molecules/ArticleCard'
 import Header from '../../molecules/Header'
 import { Toolbar } from '../../molecules/Header/styled'

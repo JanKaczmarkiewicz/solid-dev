@@ -1,4 +1,5 @@
 declare module '*.svg' {
-    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>
+    // eslint-disable-next-line no-undef
+    const content: React.FC<React.SVGAttributes<SVGElement>>
     export default content
 }

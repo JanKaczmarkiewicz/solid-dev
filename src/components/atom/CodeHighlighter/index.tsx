@@ -12,9 +12,11 @@ const CodeHighlighter = (props: CodeHighlighterProps) => (
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={{ ...style, padding: '20px' }}>
                 {tokens.map((line, i) => (
+                    // eslint-disable-next-line react/no-array-index-key
                     <div key={i} {...getLineProps({ line, key: i })}>
                         {line.map((token, key) => (
                             <span
+                                // eslint-disable-next-line react/no-array-index-key
                                 key={key}
                                 {...getTokenProps({ token, key })}
                             />

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import color from '../../../styles/color'
 import spacing from '../../../styles/spacing'
 import {
@@ -6,7 +7,6 @@ import {
     typographyParagraphNormal,
     typographyParagraphSmall,
 } from '../../../styles/font'
-import { Link } from 'gatsby'
 
 export const ArticleTitle = styled.h3`
     ${typographyHeading6}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'gatsby'
 import {
     HeaderWrapper,
     LogoWrapper,
@@ -9,7 +10,6 @@ import {
     HeaderContent,
 } from './styled'
 import Logo from '../../../../assets/logo.svg'
-import { Link } from 'gatsby'
 
 export type HeaderProps = {
     variant: 'light' | 'dark'

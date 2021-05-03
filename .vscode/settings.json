@@ -15,5 +15,10 @@
         "titleBar.inactiveBackground": "#007acc99",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#007acc"
+    "peacock.color": "#007acc",
+    "cSpell.words": [
+        "arrow",
+        "frontmatter",
+        "parens"
+    ]
 }

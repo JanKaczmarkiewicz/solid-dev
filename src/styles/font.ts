@@ -3,8 +3,7 @@ import { css } from 'styled-components'
 const BASE_FONT_SIZE = '1rem'
 const SCALE = 1.25
 
-const getFontSize = (n: number) =>
-    `calc(${BASE_FONT_SIZE} * ${Math.pow(SCALE, n)})`
+const getFontSize = (n: number) => `calc(${BASE_FONT_SIZE} * ${SCALE ** n})`
 
 export const typographyHeading1 = css`
     font-weight: bold;

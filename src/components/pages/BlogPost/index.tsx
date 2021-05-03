@@ -1,8 +1,8 @@
 import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react'
-import Header from '../../molecules/Header'
 import { PageProps } from 'gatsby'
+import Header from '../../molecules/Header'
 import CodeHighlighter from '../../atom/CodeHighlighter'
 import { PostContainer, PostParagraph, PostTitle } from './styled'
 

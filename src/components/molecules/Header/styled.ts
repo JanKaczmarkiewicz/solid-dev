@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
+import { mdiClose, mdiMenu } from '@mdi/js'
 import SectionBase from '../../atom/SectionBase'
 import { typographyParagraphBig } from '../../../styles/font'
 import spacing from '../../../styles/spacing'
@@ -7,7 +8,6 @@ import color from '../../../styles/color'
 import mediaQuery from '../../../styles/mediaQuery'
 import zIndex from '../../../styles/zIndex'
 import Icon from '../../atom/Icon'
-import { mdiClose, mdiMenu } from '@mdi/js'
 import { HeaderProps } from '.'
 
 const toolbarStyles = css`
