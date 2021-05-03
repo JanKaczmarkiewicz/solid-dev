@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { typographyHeading2, typographyHeading5 } from '../../../styles/font'
 import SectionBase from '../../atom/SectionBase'
-import GalaxySvg from '../../../../assets/bgGalaxy.svg'
+import GalaxySvg from '../../../../assets/galaxy.svg'
 import spacing from '../../../styles/spacing'
 import mediaQuery from '../../../styles/mediaQuery'
 

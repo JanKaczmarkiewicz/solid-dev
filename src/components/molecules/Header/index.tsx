@@ -31,14 +31,14 @@ const LINKS = [
     },
 ]
 
-const Header = (props: HeaderProps) => {
+const Header = ({ variant, withShadow }: HeaderProps) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     const handleToggleMobileMenuOpen = () =>
         setIsMobileMenuOpen((isOpen) => !isOpen)
 
     return (
-        <HeaderWrapper {...props}>
+        <HeaderWrapper variant={variant} withShadow={withShadow}>
             <HeaderContent>
                 <Link to="/">
                     <LogoWrapper>
@@ -49,12 +49,15 @@ const Header = (props: HeaderProps) => {
                     <CloseIcon onClick={handleToggleMobileMenuOpen} />
 
                     {LINKS.map(({ link, label }) => (
-                        <NavigationLink key={link} {...props} to={link}>
+                        <NavigationLink key={link} variant={variant} to={link}>
                             {label}
                         </NavigationLink>
                     ))}
                 </Navigation>
-                <OpenIcon {...props} onClick={handleToggleMobileMenuOpen} />
+                <OpenIcon
+                    variant={variant}
+                    onClick={handleToggleMobileMenuOpen}
+                />
             </HeaderContent>
         </HeaderWrapper>
     )

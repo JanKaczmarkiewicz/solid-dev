@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react'
 import { PageProps } from 'gatsby'
@@ -15,27 +15,30 @@ const components: MDXProviderComponentsProp = {
 }
 
 const BlogPost = ({
-    children,
-    pageContext,
-}: PageProps<undefined, GatsbyTypes.SitePageContext>) => {
-    const title = pageContext?.frontmatter?.title
+    data: { markdownRemark },
+}: PageProps<GatsbyTypes.PostQuery>) => {
+    const title = markdownRemark?.frontmatter?.title
+    const html = markdownRemark?.html
+    const imageData =
+        markdownRemark?.frontmatter?.featuredImage?.childImageSharp
+            ?.gatsbyImageData
 
     return (
         <>
             <Header withShadow={false} variant="dark" />
 
-            <StaticImage
-                src="../../../../assets/cosmos.jpeg"
-                alt=""
-                style={{ width: '100%' }}
-                placeholder="blurred"
-                layout="fixed"
-            />
+            {imageData && (
+                <GatsbyImage
+                    alt=""
+                    image={imageData}
+                    style={{ width: '100%' }}
+                />
+            )}
 
             <PostContainer>
                 <PostTitle>{title}</PostTitle>
 
-                <MDXProvider components={components}>{children}</MDXProvider>
+                <MDXProvider components={components}>{html}</MDXProvider>
             </PostContainer>
         </>
     )

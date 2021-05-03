@@ -26,7 +26,10 @@ const Home = ({ data }: PageProps<GatsbyTypes.FrontPagePostsQuery>) => {
                 <NewsContainer>
                     <SectionTitle>Nowości</SectionTitle>
                     {posts.map((post) => (
-                        <ArticleCard {...post} />
+                        <ArticleCard
+                            key={post.frontmatter?.slug || ''}
+                            {...post}
+                        />
                     ))}
                 </NewsContainer>
 

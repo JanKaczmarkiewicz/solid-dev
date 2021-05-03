@@ -44,21 +44,15 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-mdx`,
+            resolve: `gatsby-source-filesystem`,
             options: {
-                extensions: ['.md'],
-                defaultLayouts: {
-                    default: require.resolve(
-                        './src/components/pages/BlogPost/index.tsx'
-                    ),
-                },
+                path: `${__dirname}/src/articles`,
             },
         },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                name: `markdown-pages`,
-                path: `./src/pages`,
+                path: `${__dirname}/assets`,
             },
         },
     ],

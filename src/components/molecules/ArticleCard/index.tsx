@@ -28,7 +28,7 @@ const ArticleCard = ({
 
             <TagsContainer>
                 {tags.map((tag) => (
-                    <Tag>{tag}</Tag>
+                    <Tag key={tag}>{tag}</Tag>
                 ))}
             </TagsContainer>
 
