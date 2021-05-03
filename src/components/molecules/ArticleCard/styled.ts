@@ -8,7 +8,12 @@ import {
 } from '../../../styles/font'
 import { Link } from 'gatsby'
 
-const TEXT_SHADOW_SIZE = '0.3px'
+export const ArticleTitle = styled.h3`
+    ${typographyHeading6}
+`
+export const ArticleDescription = styled.p`
+    ${typographyParagraphNormal}
+`
 
 export const ArticleWrapper = styled(Link)`
     display: flex;
@@ -16,19 +21,10 @@ export const ArticleWrapper = styled(Link)`
     gap: ${spacing(1)};
 
     :hover {
-        text-shadow: -${TEXT_SHADOW_SIZE} 0 ${color.primary},
-            0 ${TEXT_SHADOW_SIZE} ${color.primary},
-            ${TEXT_SHADOW_SIZE} 0 ${color.primary},
-            0 -${TEXT_SHADOW_SIZE} ${color.primary};
+        ${ArticleTitle}, ${ArticleDescription} {
+            -webkit-text-stroke: 1px ${color.primary};
+        }
     }
-`
-
-export const ArticleTitle = styled.h3`
-    ${typographyHeading6}
-`
-
-export const ArticleDescription = styled.p`
-    ${typographyParagraphNormal}
 `
 
 export const ArticleMeta = styled.span`
