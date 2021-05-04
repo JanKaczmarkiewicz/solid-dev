@@ -7,7 +7,8 @@ import spacing from '../../../styles/spacing'
 import SectionBase from '../../atom/SectionBase'
 
 export const PostTitle = styled.h1`
-    ${typographyHeading2}
+    margin-top: ${spacing(2)};
+    ${typographyHeading2};
 `
 
 export const PostContainer = styled(SectionBase).attrs({ as: 'article' })`

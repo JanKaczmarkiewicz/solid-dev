@@ -8,9 +8,10 @@ import {
     TagsContainer,
 } from './styled'
 
-type ArticleCardProps = GatsbyTypes.FrontPagePostsQuery['allMarkdownRemark']['nodes'][number]
+type ArticleCardProps = GatsbyTypes.FrontPagePostsQuery['allMdx']['nodes'][number]
 
 const ArticleCard = ({
+    slug = '',
     excerpt,
     frontmatter,
     timeToRead,
@@ -18,7 +19,6 @@ const ArticleCard = ({
     const title = frontmatter?.title
     const date = frontmatter?.date
     const tags = frontmatter?.tags || []
-    const slug = frontmatter?.slug || ''
 
     return (
         <ArticleWrapper to={slug}>

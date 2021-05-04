@@ -1,5 +1,5 @@
 import React from 'react'
-import { PageProps } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import ArticleCard from '../../molecules/ArticleCard'
 import Header from '../../molecules/Header'
 import { Toolbar } from '../../molecules/Header/styled'
@@ -13,8 +13,25 @@ import {
     SectionContainer,
 } from './styled'
 
-const Home = ({ data }: PageProps<GatsbyTypes.FrontPagePostsQuery>) => {
-    const posts = data.allMarkdownRemark.nodes
+const Home = () => {
+    const { allMdx } = useStaticQuery<GatsbyTypes.FrontPagePostsQuery>(graphql`
+        query FrontPagePosts {
+            allMdx {
+                nodes {
+                    slug
+                    timeToRead
+                    excerpt
+                    frontmatter {
+                        title
+                        date
+                        tags
+                    }
+                }
+            }
+        }
+    `)
+
+    const posts = allMdx.nodes
 
     return (
         <>
@@ -26,10 +43,7 @@ const Home = ({ data }: PageProps<GatsbyTypes.FrontPagePostsQuery>) => {
                 <NewsContainer>
                     <SectionTitle>Nowości</SectionTitle>
                     {posts.map((post) => (
-                        <ArticleCard
-                            key={post.frontmatter?.slug || ''}
-                            {...post}
-                        />
+                        <ArticleCard key={post.slug} {...post} />
                     ))}
                 </NewsContainer>
 

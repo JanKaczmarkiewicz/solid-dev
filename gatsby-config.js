@@ -15,7 +15,10 @@ module.exports = {
         'gatsby-plugin-image',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
-        'gatsby-transformer-remark',
+        {
+            resolve: 'gatsby-plugin-mdx',
+            options: { extensions: [`.md`] },
+        },
         {
             resolve: `gatsby-plugin-typegen`,
             options: {

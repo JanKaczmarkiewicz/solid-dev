@@ -1,5 +1,4 @@
 ---
-slug: '/blog/my-first-post'
 title: 'My first blog post'
 date: '2019-05-04'
 featuredImage: '../../assets/bg1.jpeg'

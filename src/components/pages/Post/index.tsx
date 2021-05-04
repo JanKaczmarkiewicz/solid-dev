@@ -1,6 +1,7 @@
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { PageProps } from 'gatsby'
 import Header from '../../molecules/Header'
 import CodeHighlighter from '../../atom/CodeHighlighter'
@@ -14,14 +15,12 @@ const components: MDXProviderComponentsProp = {
     },
 }
 
-const BlogPost = ({
-    data: { markdownRemark },
-}: PageProps<GatsbyTypes.PostQuery>) => {
-    const title = markdownRemark?.frontmatter?.title
-    const html = markdownRemark?.html
+const Post = ({ data: { mdx } }: PageProps<GatsbyTypes.PostQuery>) => {
+    const title = mdx?.frontmatter?.title
+    const body = mdx?.body || ''
+
     const imageData =
-        markdownRemark?.frontmatter?.featuredImage?.childImageSharp
-            ?.gatsbyImageData
+        mdx?.frontmatter?.featuredImage?.childImageSharp?.gatsbyImageData
 
     return (
         <>
@@ -38,10 +37,12 @@ const BlogPost = ({
             <PostContainer>
                 <PostTitle>{title}</PostTitle>
 
-                <MDXProvider components={components}>{html}</MDXProvider>
+                <MDXProvider components={components}>
+                    <MDXRenderer>{body}</MDXRenderer>
+                </MDXProvider>
             </PostContainer>
         </>
     )
 }
 
-export default BlogPost
+export default Post
