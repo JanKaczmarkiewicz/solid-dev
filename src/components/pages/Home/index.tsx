@@ -27,7 +27,11 @@ const Home = () => {
                         tags
                         featuredImage {
                             childImageSharp {
-                                gatsbyImageData(layout: FIXED)
+                                gatsbyImageData(
+                                    layout: FIXED
+                                    width: 100
+                                    height: 100
+                                )
                             }
                         }
                     }
