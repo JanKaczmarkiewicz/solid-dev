@@ -1,43 +1,54 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import color from '../../../styles/color'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import spacing from '../../../styles/spacing'
 import {
     typographyHeading6,
     typographyParagraphNormal,
     typographyParagraphSmall,
 } from '../../../styles/font'
+import Tags from '../../atom/Tags'
+import mediaQuery from '../../../styles/mediaQuery'
 
-export const ArticleTitle = styled.h3`
-    ${typographyHeading6}
+export const ArticleHeading = styled.h3`
+    grid-area: h;
+    ${typographyHeading6};
 `
 export const ArticleDescription = styled.p`
+    grid-area: d;
     ${typographyParagraphNormal}
 `
 
 export const ArticleWrapper = styled(Link)`
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: ${spacing(1)};
+    grid-template-columns: 1fr 200px;
+    grid-template-areas:
+        'h i'
+        'd i'
+        't i'
+        'm i';
 
-    :hover {
-        ${ArticleTitle}, ${ArticleDescription} {
-            -webkit-text-stroke: 1px ${color.primary};
-        }
+    @media ${mediaQuery.mobile} {
+        grid-template-columns: auto;
+        grid-template-areas:
+            'i'
+            'h'
+            'd '
+            't'
+            'm';
     }
 `
 
 export const ArticleMeta = styled.span`
-    ${typographyParagraphSmall}
+    grid-area: m;
+    ${typographyParagraphSmall};
 `
 
-export const Tag = styled.button`
-    color: white;
-    background-color: ${color.primary};
-    padding: ${spacing(1 / 2)} ${spacing(1)};
+export const ArticleTags = styled(Tags)`
+    grid-area: t;
 `
 
-export const TagsContainer = styled.div`
-    display: flex;
-    gap: ${spacing(1)};
+export const ArticleImage = styled(GatsbyImage)`
+    grid-area: i;
 `
