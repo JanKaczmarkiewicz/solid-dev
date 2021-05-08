@@ -27,6 +27,7 @@ export const SectionContainer = styled(SectionBase)`
 
 export const MainTitle = styled.h1`
     grid-area: t;
+    align-self: center;
     ${typographyHeading2}
 `
 
