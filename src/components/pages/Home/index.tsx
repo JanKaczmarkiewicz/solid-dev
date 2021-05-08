@@ -20,11 +20,16 @@ const Home = () => {
                 nodes {
                     slug
                     timeToRead
-                    excerpt
+                    excerpt(pruneLength: 64)
                     frontmatter {
                         title
                         date
                         tags
+                        featuredImage {
+                            childImageSharp {
+                                gatsbyImageData(layout: FIXED)
+                            }
+                        }
                     }
                 }
             }
@@ -35,7 +40,7 @@ const Home = () => {
 
     return (
         <>
-            <Header withShadow variant="light" />
+            <Header withShadow isDarkMode={false} />
             <Toolbar />
             <SectionContainer>
                 <MainTitle>Witaj na blogu o web</MainTitle>
