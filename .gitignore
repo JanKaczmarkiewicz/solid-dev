@@ -56,4 +56,7 @@ public
 # Mac files
 .DS_Store
 
+# Generated
+src/__generated__
+
 

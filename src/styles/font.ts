@@ -3,8 +3,7 @@ import { css } from 'styled-components'
 const BASE_FONT_SIZE = '1rem'
 const SCALE = 1.25
 
-const getFontSize = (n: number) =>
-    `calc(${BASE_FONT_SIZE} * ${Math.pow(SCALE, n)})`
+const getFontSize = (n: number) => `calc(${BASE_FONT_SIZE} * ${SCALE ** n})`
 
 export const typographyHeading1 = css`
     font-weight: bold;
@@ -14,7 +13,7 @@ export const typographyHeading1 = css`
 export const typographyHeading2 = css`
     font-weight: bold;
     font-size: ${getFontSize(6)};
-    line-height: 62px;
+    line-height: 71px;
 `
 
 export const typographyHeading3 = css`
@@ -56,7 +55,7 @@ export const typographyParagraphNormal = css`
 
 export const typographyParagraphSmall = css`
     font-weight: 300;
-    font-size: ${getFontSize(1 / 2)};
+    font-size: ${getFontSize(-1)};
     line-height: 19px;
     color: #bdbdbd;
 `
