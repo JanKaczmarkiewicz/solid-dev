@@ -12,7 +12,7 @@ import {
 import Logo from '../../../../assets/logo.svg'
 
 export type HeaderProps = {
-    variant: 'light' | 'dark'
+    isDarkMode: boolean
     withShadow: boolean
 }
 
@@ -31,31 +31,37 @@ const LINKS = [
     },
 ]
 
-const Header = ({ variant, withShadow }: HeaderProps) => {
+const Header = ({ isDarkMode, withShadow }: HeaderProps) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     const handleToggleMobileMenuOpen = () =>
         setIsMobileMenuOpen((isOpen) => !isOpen)
 
     return (
-        <HeaderWrapper variant={variant} withShadow={withShadow}>
+        <HeaderWrapper isDarkMode={isDarkMode} withShadow={withShadow}>
             <HeaderContent>
                 <Link to="/">
                     <LogoWrapper>
                         <Logo />
                     </LogoWrapper>
                 </Link>
+
                 <Navigation isMobileMenuOpen={isMobileMenuOpen}>
                     <CloseIcon onClick={handleToggleMobileMenuOpen} />
 
                     {LINKS.map(({ link, label }) => (
-                        <NavigationLink key={link} variant={variant} to={link}>
+                        <NavigationLink
+                            key={link}
+                            isDarkMode={isDarkMode}
+                            to={link}
+                        >
                             {label}
                         </NavigationLink>
                     ))}
                 </Navigation>
+
                 <OpenIcon
-                    variant={variant}
+                    isDarkMode={isDarkMode}
                     onClick={handleToggleMobileMenuOpen}
                 />
             </HeaderContent>

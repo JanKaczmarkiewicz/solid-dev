@@ -22,8 +22,8 @@ export const HeaderWrapper = styled.header<HeaderProps>`
     position: absolute;
     width: 100%;
     z-index: ${zIndex.header};
-    background-color: ${({ variant }) =>
-        variant === 'light' ? color.white : color.transparent};
+    background-color: ${({ isDarkMode }) =>
+        isDarkMode ? color.transparent : color.white};
     box-shadow: ${({ withShadow }) =>
         withShadow && '0px 4px 4px rgba(0, 0, 0, 0.25)'};
 `
@@ -66,11 +66,11 @@ export const Navigation = styled.nav<{
     }
 `
 
-const getContrastColor = ({ variant }: Pick<HeaderProps, 'variant'>) =>
-    variant === 'light' ? color.black : color.white
+const getContrastColor = ({ isDarkMode }: Pick<HeaderProps, 'isDarkMode'>) =>
+    isDarkMode ? color.white : color.black
 
 // FIXME: find better way to style current link (than &[aria-current])
-export const NavigationLink = styled(Link)<Pick<HeaderProps, 'variant'>>`
+export const NavigationLink = styled(Link)<Pick<HeaderProps, 'isDarkMode'>>`
     ${typographyParagraphBig}
     text-decoration: none;
     color: ${getContrastColor};
@@ -89,7 +89,7 @@ const hideOnMobileStyles = css`
 `
 
 export const OpenIcon = styled(Icon).attrs({ path: mdiMenu })<
-    Pick<HeaderProps, 'variant'>
+    Pick<HeaderProps, 'isDarkMode'>
 >`
     ${hideOnMobileStyles}
     color: ${getContrastColor};
