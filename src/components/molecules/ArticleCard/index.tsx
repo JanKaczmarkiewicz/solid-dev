@@ -2,10 +2,10 @@ import React from 'react'
 import {
     ArticleDescription,
     ArticleMeta,
-    ArticleTitle,
+    ArticleHeading,
     ArticleWrapper,
-    Tag,
-    TagsContainer,
+    ArticleTags,
+    ArticleImage,
 } from './styled'
 
 type ArticleCardProps = GatsbyTypes.FrontPagePostsQuery['allMdx']['nodes'][number]
@@ -19,23 +19,24 @@ const ArticleCard = ({
     const title = frontmatter?.title
     const date = frontmatter?.date
     const tags = frontmatter?.tags || []
+    const image = frontmatter?.featuredImage?.childImageSharp?.gatsbyImageData
 
     return (
-        <ArticleWrapper to={slug}>
-            <ArticleTitle>{title}</ArticleTitle>
+        <>
+            <ArticleWrapper to={slug}>
+                <ArticleHeading>{title}</ArticleHeading>
 
-            <ArticleDescription>{excerpt}</ArticleDescription>
+                <ArticleDescription>{excerpt}</ArticleDescription>
 
-            <TagsContainer>
-                {tags.map((tag) => (
-                    <Tag key={tag}>{tag}</Tag>
-                ))}
-            </TagsContainer>
+                <ArticleTags tags={tags} />
 
-            <ArticleMeta>
-                {date} · {timeToRead} min czytania
-            </ArticleMeta>
-        </ArticleWrapper>
+                <ArticleMeta>
+                    {date} · {timeToRead} min czytania
+                </ArticleMeta>
+
+                {image && <ArticleImage alt="" image={image} />}
+            </ArticleWrapper>
+        </>
     )
 }
 
