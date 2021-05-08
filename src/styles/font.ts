@@ -55,7 +55,7 @@ export const typographyParagraphNormal = css`
 
 export const typographyParagraphSmall = css`
     font-weight: 300;
-    font-size: ${getFontSize(1 / 2)};
+    font-size: ${getFontSize(-1)};
     line-height: 19px;
     color: #bdbdbd;
 `
