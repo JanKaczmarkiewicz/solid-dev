@@ -1,7 +1,7 @@
 ---
 date: '2019-05-04'
 title: 'My second blog post'
-headerVariant: 'dark'
+isDarkMode: true
 featuredImage: '../../assets/bg2.jpeg'
 tags: ['typescript']
 ---

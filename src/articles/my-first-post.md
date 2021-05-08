@@ -1,6 +1,7 @@
 ---
-title: 'My first blog post'
+title: 'There are multiple modules.'
 date: '2019-05-04'
+isDarkMode: true
 featuredImage: '../../assets/bg1.jpeg'
 tags: ['react', 'typescript']
 ---

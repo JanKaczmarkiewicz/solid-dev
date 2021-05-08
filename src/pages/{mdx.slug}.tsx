@@ -2,12 +2,13 @@ import { graphql } from 'gatsby'
 import Post from '../components/pages/Post'
 
 export const query = graphql`
-    query Post($slug: String!) {
+    query PostData($slug: String!) {
         mdx(slug: { eq: $slug }) {
             body
             frontmatter {
-                date(formatString: "MMMM DD, YYYY")
+                tags
                 title
+                isDarkMode
                 featuredImage {
                     childImageSharp {
                         gatsbyImageData(layout: FIXED, height: 400)
