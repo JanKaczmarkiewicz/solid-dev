@@ -1,30 +1,33 @@
 import React, { ComponentProps } from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import vsDark from 'prism-react-renderer/themes/vsDark'
-import { Pre } from './styled'
+import { CodeContainer } from './styled'
 
 type CodeHighlighterProps = Pick<
     ComponentProps<typeof Highlight>,
     'code' | 'language'
 >
 
+const withoutLast = <T extends unknown[]>(elements: T[]): T[] => {
+    const newElements = [...elements]
+    newElements.splice(newElements.length - 1)
+    return newElements
+}
+
 const CodeHighlighter = (props: CodeHighlighterProps) => (
     <Highlight {...defaultProps} theme={vsDark} {...props}>
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <Pre className={className} style={style}>
-                {tokens.map((line, i) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <div key={i} {...getLineProps({ line, key: i })}>
-                        {line.map((token, key) => (
+        {({ className, style, tokens: lines, getLineProps, getTokenProps }) => (
+            <CodeContainer className={className} style={style}>
+                {withoutLast(lines).map((line, lineIndex) => (
+                    <div {...getLineProps({ line, key: lineIndex })}>
+                        {line.map((token, tokenIndex) => (
                             <span
-                                // eslint-disable-next-line react/no-array-index-key
-                                key={key}
-                                {...getTokenProps({ token, key })}
+                                {...getTokenProps({ token, key: tokenIndex })}
                             />
                         ))}
                     </div>
                 ))}
-            </Pre>
+            </CodeContainer>
         )}
     </Highlight>
 )

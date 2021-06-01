@@ -11,12 +11,18 @@ import {
     SearchContainer,
     SectionTitle,
     SectionContainer,
+    TagsTitle,
 } from './styled'
+import Tags from '../../atom/Tags'
 
 const Home = () => {
     const { allMdx } = useStaticQuery<GatsbyTypes.FrontPagePostsQuery>(graphql`
         query FrontPagePosts {
             allMdx {
+                group(field: frontmatter___tags) {
+                    fieldValue
+                }
+
                 nodes {
                     slug
                     timeToRead
@@ -29,8 +35,8 @@ const Home = () => {
                             childImageSharp {
                                 gatsbyImageData(
                                     layout: FIXED
-                                    width: 100
-                                    height: 100
+                                    width: 200
+                                    height: 160
                                 )
                             }
                         }
@@ -41,6 +47,7 @@ const Home = () => {
     `)
 
     const posts = allMdx.nodes
+    const tags = allMdx.group.map(({ fieldValue }) => fieldValue)
 
     return (
         <>
@@ -59,6 +66,8 @@ const Home = () => {
                 <SearchContainer>
                     <SectionTitle>Wyszukiwarka</SectionTitle>
                     <Search />
+                    <TagsTitle>Tags</TagsTitle>
+                    <Tags tags={tags} />
                 </SearchContainer>
             </SectionContainer>
         </>

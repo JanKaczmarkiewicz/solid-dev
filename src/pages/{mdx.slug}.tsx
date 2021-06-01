@@ -8,10 +8,13 @@ export const query = graphql`
             frontmatter {
                 tags
                 title
-                isDarkMode
                 featuredImage {
                     childImageSharp {
-                        gatsbyImageData(layout: FIXED, height: 400)
+                        gatsbyImageData(
+                            layout: FULL_WIDTH
+                            height: 400
+                            aspectRatio: 3
+                        )
                     }
                 }
             }

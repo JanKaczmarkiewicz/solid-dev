@@ -10,6 +10,7 @@ import Tags from '../../atom/Tags'
 
 const components: MDXProviderComponentsProp = {
     p: PostParagraph,
+    pre: ({ children }) => <>{children}</>,
     code: ({ children, className }) => {
         const language = className.replace(/language-/, '')
         return <CodeHighlighter code={children} language={language} />
@@ -20,22 +21,15 @@ const Post = ({ data: { mdx } }: PageProps<GatsbyTypes.PostQuery>) => {
     const title = mdx?.frontmatter?.title
     const body = mdx?.body || ''
     const tags = mdx?.frontmatter?.tags || []
-    const isDarkMode = mdx?.frontmatter?.isDarkMode ?? false
 
     const imageData =
         mdx?.frontmatter?.featuredImage?.childImageSharp?.gatsbyImageData
 
     return (
         <>
-            <Header withShadow={false} isDarkMode={isDarkMode} />
+            <Header withShadow={false} isDarkMode />
 
-            {imageData && (
-                <GatsbyImage
-                    alt=""
-                    image={imageData}
-                    style={{ width: '100%' }}
-                />
-            )}
+            {imageData && <GatsbyImage alt="" image={imageData} />}
 
             <PostContainer>
                 <PostTitle>{title}</PostTitle>

@@ -1,5 +1,9 @@
 import styled from 'styled-components'
-import { typographyHeading2, typographyHeading5 } from '../../../styles/font'
+import {
+    typographyHeading2,
+    typographyHeading5,
+    typographyHeading6,
+} from '../../../styles/font'
 import SectionBase from '../../atom/SectionBase'
 import GalaxySvg from '../../../../assets/galaxy.svg'
 import spacing from '../../../styles/spacing'
@@ -7,11 +11,11 @@ import mediaQuery from '../../../styles/mediaQuery'
 
 export const SectionContainer = styled(SectionBase)`
     display: grid;
-    gap: ${spacing(1)};
-    grid-template-columns: repeat(12, 1fr);
+    gap: ${spacing(3)};
+    grid-template-columns: repeat(10, 1fr);
     grid-template-areas:
-        't t t t t t t . i i i i'
-        'n n n n n n n . s s s s';
+        't t t t t t i i i i'
+        'n n n n n n s s s s';
     padding-top: ${spacing(1)};
 
     @media ${mediaQuery.mobile} {
@@ -52,4 +56,8 @@ export const NewsContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: ${spacing(2)};
+`
+
+export const TagsTitle = styled.h3`
+    ${typographyHeading6}
 `
