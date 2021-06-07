@@ -1,6 +1,6 @@
 const createZIndexRegistry = <T extends readonly string[]>(layers: T) =>
     layers.reduce(
-        (registry, layer: T[number], index) => ({
+        (registry, layer, index) => ({
             ...registry,
             [layer]: index + 1,
         }),
