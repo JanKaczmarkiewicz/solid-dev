@@ -14,6 +14,7 @@ import {
     TagsTitle,
 } from './styled'
 import Tags from '../../atom/Tags'
+import color from '../../../styles/color'
 
 const Home = () => {
     const { allMdx } = useStaticQuery<GatsbyTypes.FrontPagePostsQuery>(graphql`
@@ -51,7 +52,7 @@ const Home = () => {
 
     return (
         <>
-            <Header withShadow isDarkMode={false} />
+            <Header textColor={color.black} />
             <Toolbar />
             <SectionContainer>
                 <MainTitle>Witaj na blogu o web</MainTitle>

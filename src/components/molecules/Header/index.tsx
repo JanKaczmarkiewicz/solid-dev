@@ -8,13 +8,10 @@ import {
     OpenIcon,
     CloseIcon,
     HeaderContent,
+    MobileNavigation,
+    MenuWrapper,
 } from './styled'
 import Logo from '../../../../assets/logo.svg'
-
-export type HeaderProps = {
-    isDarkMode: boolean
-    withShadow: boolean
-}
 
 const LINKS = [
     {
@@ -31,42 +28,53 @@ const LINKS = [
     },
 ]
 
-const Header = ({ isDarkMode, withShadow }: HeaderProps) => {
+type HeaderProps = { textColor: string }
+
+const MobileMenu = ({ textColor }: HeaderProps) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-    const handleToggleMobileMenuOpen = () =>
-        setIsMobileMenuOpen((isOpen) => !isOpen)
+    const handleOpenMobileNavigation = () => setIsMobileMenuOpen(true)
+    const handleCloseMobileNavigation = () => setIsMobileMenuOpen(false)
 
     return (
-        <HeaderWrapper isDarkMode={isDarkMode} withShadow={withShadow}>
-            <HeaderContent>
-                <Link to="/">
-                    <LogoWrapper>
-                        <Logo />
-                    </LogoWrapper>
-                </Link>
+        <MenuWrapper>
+            <OpenIcon color={textColor} onClick={handleOpenMobileNavigation} />
 
-                <Navigation isMobileMenuOpen={isMobileMenuOpen}>
-                    <CloseIcon onClick={handleToggleMobileMenuOpen} />
+            {isMobileMenuOpen && (
+                <MobileNavigation role="dialog" aria-labelledby="menu">
+                    <CloseIcon onClick={handleCloseMobileNavigation} />
 
                     {LINKS.map(({ link, label }) => (
-                        <NavigationLink
-                            key={link}
-                            isDarkMode={isDarkMode}
-                            to={link}
-                        >
+                        <NavigationLink key={link} to={link}>
                             {label}
                         </NavigationLink>
                     ))}
-                </Navigation>
-
-                <OpenIcon
-                    isDarkMode={isDarkMode}
-                    onClick={handleToggleMobileMenuOpen}
-                />
-            </HeaderContent>
-        </HeaderWrapper>
+                </MobileNavigation>
+            )}
+        </MenuWrapper>
     )
 }
+
+const Header = ({ textColor }: HeaderProps) => (
+    <HeaderWrapper>
+        <HeaderContent>
+            <Link to="/">
+                <LogoWrapper>
+                    <Logo />
+                </LogoWrapper>
+            </Link>
+
+            <Navigation>
+                {LINKS.map(({ link, label }) => (
+                    <NavigationLink color={textColor} key={link} to={link}>
+                        {label}
+                    </NavigationLink>
+                ))}
+            </Navigation>
+
+            <MobileMenu textColor={textColor} />
+        </HeaderContent>
+    </HeaderWrapper>
+)
 
 export default Header

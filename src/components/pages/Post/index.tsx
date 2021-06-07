@@ -7,6 +7,7 @@ import Header from '../../molecules/Header'
 import CodeHighlighter from '../../atom/CodeHighlighter'
 import { PostContainer, PostParagraph, PostTitle } from './styled'
 import Tags from '../../atom/Tags'
+import color from '../../../styles/color'
 
 const components: MDXProviderComponentsProp = {
     p: PostParagraph,
@@ -27,7 +28,7 @@ const Post = ({ data: { mdx } }: PageProps<GatsbyTypes.PostQuery>) => {
 
     return (
         <>
-            <Header withShadow={false} isDarkMode />
+            <Header textColor={color.white} />
 
             {imageData && <GatsbyImage alt="" image={imageData} />}
 
