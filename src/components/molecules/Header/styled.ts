@@ -8,7 +8,6 @@ import color from '../../../styles/color'
 import mediaQuery from '../../../styles/mediaQuery'
 import zIndex from '../../../styles/zIndex'
 import Icon from '../../atom/Icon'
-import { HeaderProps } from '.'
 
 const toolbarStyles = css`
     height: 64px;
@@ -18,18 +17,15 @@ export const Toolbar = styled.div`
     ${toolbarStyles}
 `
 
-export const HeaderWrapper = styled.header<HeaderProps>`
+export const HeaderWrapper = styled.header`
     position: absolute;
-    width: 100%;
     z-index: ${zIndex.header};
-    background-color: ${({ isDarkMode }) =>
-        isDarkMode ? color.transparent : color.white};
-    box-shadow: ${({ withShadow }) =>
-        withShadow && '0px 4px 4px rgba(0, 0, 0, 0.25)'};
+    width: 100%;
 `
 
 export const HeaderContent = styled(SectionBase)`
     ${toolbarStyles}
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,63 +37,52 @@ export const LogoWrapper = styled.div`
     background-color: ${color.white};
 `
 
-const navigationMobileStyles = css`
-    display: flex;
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    padding-top: ${spacing(5)};
-`
-
-export const Navigation = styled.nav<{
-    isMobileMenuOpen: boolean
-}>`
-    display: flex;
-    gap: ${spacing(3)};
-
+const hideOnMobileStyles = css`
     @media ${mediaQuery.mobile} {
         display: none;
-        ${({ isMobileMenuOpen }) => isMobileMenuOpen && navigationMobileStyles}
     }
 `
 
-const getContrastColor = ({ isDarkMode }: Pick<HeaderProps, 'isDarkMode'>) =>
-    isDarkMode ? color.white : color.black
-
-// FIXME: find better way to style current link (than &[aria-current])
-export const NavigationLink = styled(Link)<Pick<HeaderProps, 'isDarkMode'>>`
-    ${typographyParagraphBig}
-    text-decoration: none;
-    color: ${getContrastColor};
-
-    &[aria-current] {
-        color: ${color.primary};
-    }
-`
-
-const hideOnMobileStyles = css`
-    display: none;
-
-    @media ${mediaQuery.mobile} {
-        display: block;
-    }
-`
-
-export const OpenIcon = styled(Icon).attrs({ path: mdiMenu })<
-    Pick<HeaderProps, 'isDarkMode'>
->`
+export const Navigation = styled.nav`
     ${hideOnMobileStyles}
-    color: ${getContrastColor};
+
+    display: flex;
+    gap: ${spacing(3)};
+`
+
+export const MobileNavigation = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: ${spacing(3)};
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: ${color.white};
+`
+
+export const NavigationLink = styled(Link).attrs({
+    activeStyle: { color: color.primary },
+})`
+    color: ${({ color: textcolor }) => textcolor};
+    ${typographyParagraphBig}
+`
+
+export const OpenIcon = styled(Icon).attrs({ path: mdiMenu })`
+    display: block;
 `
 
 export const CloseIcon = styled(Icon).attrs({ path: mdiClose })`
-    ${hideOnMobileStyles}
     position: absolute;
     top: ${spacing(1)};
     right: ${spacing(1)};
+`
+
+export const MenuWrapper = styled.div`
+    @media ${mediaQuery.notMobile} {
+        display: none;
+    }
 `

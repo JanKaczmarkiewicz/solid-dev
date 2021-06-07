@@ -7,10 +7,10 @@ import Icon from '../../atom/Icon'
 
 export const SearchInput = styled.input`
     ${typographyParagraphBig}
+    flex: 1;
     padding: ${spacing(1 / 2)};
     border: 1px solid ${color.secondary};
     border-radius: ${borderRadius.normal};
-    flex: 1;
 
     ::placeholder {
         color: ${color.secondary};
@@ -25,8 +25,8 @@ export const SearchWrapper = styled.div`
 
 export const SearchIcon = styled(Icon)`
     position: absolute;
-    right: ${spacing(1 / 2)};
     top: ${spacing(1 / 2)};
+    right: ${spacing(1 / 2)};
 
     path {
         fill: ${color.secondary};

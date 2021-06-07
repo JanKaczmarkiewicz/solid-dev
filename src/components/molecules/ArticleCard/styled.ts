@@ -21,22 +21,22 @@ export const ArticleDescription = styled.p`
 
 export const ArticleWrapper = styled(Link)`
     display: grid;
-    gap: ${spacing(1)};
-    grid-template-columns: 1fr 200px;
     grid-template-areas:
         'h i'
         'd i'
         't i'
         'm i';
+    grid-template-columns: 1fr 200px;
+    gap: ${spacing(1)};
 
     @media ${mediaQuery.mobile} {
-        grid-template-columns: auto;
         grid-template-areas:
             'i'
             'h'
             'd '
             't'
             'm';
+        grid-template-columns: auto;
     }
 `
 
