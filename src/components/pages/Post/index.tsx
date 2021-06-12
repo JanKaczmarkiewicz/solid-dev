@@ -4,17 +4,25 @@ import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { PageProps } from 'gatsby'
 import Header from '../../molecules/Header'
-import CodeHighlighter from '../../atom/CodeHighlighter'
-import { PostContainer, PostParagraph, PostTitle } from './styled'
-import Tags from '../../atom/Tags'
+import {
+    PostCodeHighlighter,
+    PostContainer,
+    PostH2,
+    PostH3,
+    PostParagraph,
+    PostTags,
+    PostTitle,
+} from './styled'
 import color from '../../../styles/color'
 
 const components: MDXProviderComponentsProp = {
+    h2: PostH2,
+    h3: PostH3,
     p: PostParagraph,
     pre: ({ children }) => <>{children}</>,
     code: ({ children, className }) => {
         const language = className.replace(/language-/, '')
-        return <CodeHighlighter code={children} language={language} />
+        return <PostCodeHighlighter code={children} language={language} />
     },
 }
 
@@ -35,7 +43,7 @@ const Post = ({ data: { mdx } }: PageProps<GatsbyTypes.PostQuery>) => {
             <PostContainer>
                 <PostTitle>{title}</PostTitle>
 
-                <Tags tags={tags} />
+                <PostTags tags={tags} />
 
                 <MDXProvider components={components}>
                     <MDXRenderer>{body}</MDXRenderer>
